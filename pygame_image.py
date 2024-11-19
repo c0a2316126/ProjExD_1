@@ -10,6 +10,9 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    kokaton_img = pg.image.load("fig/3.pmg")
+    kokaton_img = pg.transform.flip(kokaton_img,True,False)
+    kokaton_img = pg.transform.rotozoom(kokaton_img,10,1.0)
     tmr = 0
     while True:
         for event in pg.event.get():
@@ -18,7 +21,7 @@ def main():
         screen.blit(bg_img, [0, 0])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
