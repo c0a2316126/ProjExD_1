@@ -22,20 +22,23 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        xa = 0
+        y = 0
         Key_lst = pg.key.get_pressed()
 
         if Key_lst[pg.K_UP]:
-            kk_rct.move_ip(0,-1)
+            y -= 1
 
         if Key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0,1)
+            y += 1
 
         if Key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1,0)
+            xa -= 1
 
         if Key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(+2,0)
-        kk_rct.move_ip(-1,0)
+            xa += 2
+        kk_rct.move_ip(xa-1,y)
+
 
 
         x = -(tmr%3200)
